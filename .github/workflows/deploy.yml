@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Đã nâng lên v4
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4 # Đã nâng lên v4
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20  # <--- ĐÃ SỬA DÒNG NÀY TỪ 18 THÀNH 20
 
       - name: Install dependencies
         run: npm install
@@ -29,7 +29,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3 # Quan trọng: Nâng lên v3 để sửa lỗi
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
 
@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # Đã nâng lên v4
+        uses: actions/deploy-pages@v4
